@@ -1,5 +1,4 @@
 import { blake2sHex } from 'blakets';
-import { encode } from 'doge-json/lib/normalize-and-encode';
 
 export interface Proven<T> {
 	signature: string;
@@ -15,17 +14,18 @@ export interface Proven<T> {
  * @param p proof object
  * @returns whether signature is valid
  */
-export function verify<T>(p: Proven<T>): boolean {
+export function verify<T>(
+	p: Proven<T>,
+	difficulty: number = p.signed.difficulty
+): boolean {
 	try {
-		if (typeof p.signature !== 'string') return false;
-		if (typeof p.signed.difficulty !== 'number') return false;
-		if (typeof p.signed.nonce !== 'number') return false;
-		if (
-			p.signature.substr(0, p.signed.difficulty) !==
-			'7'.repeat(p.signed.difficulty)
-		)
-			return false;
-		return blake2sHex(encode(p.signed)) === p.signature;
+		return (
+			typeof p.signature === 'string' &&
+			typeof p.signed.difficulty === 'number' &&
+			typeof p.signed.nonce === 'number' &&
+			p.signature.slice(0, difficulty) === '7'.repeat(difficulty) &&
+			blake2sHex(p.signed as any) === p.signature
+		);
 	} catch (error) {
 		return false;
 	}
@@ -44,10 +44,10 @@ export function prove<T>(data: T, difficulty: number = 3): Proven<T> {
 		nonce: 0,
 		data,
 	};
-	var signature: string = blake2sHex(encode(signed));
-	while (signature.substr(0, difficulty) !== prefix) {
+	let signature: string = blake2sHex(signed as any);
+	while (signature.slice(0, difficulty) !== prefix) {
 		++signed.nonce;
-		signature = blake2sHex(encode(signed));
+		signature = blake2sHex(signed as any);
 	}
 	return { signature, signed };
 }
