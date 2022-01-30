@@ -37,11 +37,15 @@ export function verify<T>(
  * @param difficulty signature difficulty
  * @returns proof object
  */
-export function prove<T>(data: T, difficulty: number = 3): Proven<T> {
+export function prove<T>(
+	data: T,
+	difficulty: number = 3,
+	nonce: number = 0
+): Proven<T> {
 	const prefix = '7'.repeat(difficulty);
 	const signed = {
 		difficulty,
-		nonce: 0,
+		nonce,
 		data,
 	};
 	let signature: string = blake2sHex(signed as any);
