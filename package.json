@@ -1,7 +1,7 @@
 {
 	"name": "doge-pow",
 	"description": "Very dodgy proof-of-work for the browser",
-	"version": "0.1.0-2",
+	"version": "0.1.0-3",
 	"main": "lib/index.js",
 	"bin": {
 		"doge-pow": "lib/cli.js"

@@ -55,3 +55,5 @@ export function prove<T>(
 	}
 	return { signature, signed };
 }
+
+export { prove_async } from './async';
