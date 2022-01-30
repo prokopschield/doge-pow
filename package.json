@@ -1,7 +1,7 @@
 {
 	"name": "doge-pow",
 	"description": "Very dodgy proof-of-work for the browser",
-	"version": "0.1.0-3",
+	"version": "0.1.0-4",
 	"main": "lib/index.js",
 	"bin": {
 		"doge-pow": "lib/cli.js"
@@ -12,7 +12,7 @@
 	},
 	"author": "Prokop Schield",
 	"dependencies": {
-		"blakets": "^0.1.8"
+		"blakets": "^0.1.10"
 	},
 	"devDependencies": {
 		"@types/node": "^14"

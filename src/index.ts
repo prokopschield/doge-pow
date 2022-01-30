@@ -26,7 +26,7 @@ export function verify<T>(
 			p.signature.slice(0, difficulty) === '7'.repeat(difficulty) &&
 			blake2sHex(p.signed as any) === p.signature
 		);
-	} catch (error) {
+	} catch {
 		return false;
 	}
 }
@@ -49,10 +49,12 @@ export function prove<T>(
 		data,
 	};
 	let signature: string = blake2sHex(signed as any);
+
 	while (signature.slice(0, difficulty) !== prefix) {
 		++signed.nonce;
 		signature = blake2sHex(signed as any);
 	}
+
 	return { signature, signed };
 }
 

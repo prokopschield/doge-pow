@@ -7,7 +7,7 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.17.15.tgz#d5ebfb62a69074ebb85cbe0529ad917bb8f2bae8"
   integrity sha512-D1sdW0EcSCmNdLKBGMYb38YsHUS6JcM7yQ6sLQ9KuZ35ck7LYCKE7kYFHOO59ayFOY3zobWVZxf4KXhYHcHYFA==
 
-blakets@^0.1.8:
-  version "0.1.8"
-  resolved "https://registry.yarnpkg.com/blakets/-/blakets-0.1.8.tgz#bb366bd3a7c7da1a974d92ef06bfc6811e7151dc"
-  integrity sha512-9MQp+sHqHl+Dn/VEYnTg3hXhuww+ljO7l588a6FNKrty63N4us0tJW7wXgpNHuNkH3IbVHZ9DL7Fd3Z3hNt2Tw==
+blakets@^0.1.10:
+  version "0.1.10"
+  resolved "https://registry.yarnpkg.com/blakets/-/blakets-0.1.10.tgz#3890455fc37ddaea0898ff595dcf052fcdf19329"
+  integrity sha512-OCMDSp/l/H3LBaLeCX43EzXWa1m3UuGmt25K8Pc3xpHljPfcHDpMcWub3PNYCAh+KwReHl5iYgoLO02m0K/Pww==
